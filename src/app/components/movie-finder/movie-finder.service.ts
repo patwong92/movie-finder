@@ -10,23 +10,8 @@ import {
     throwError,
 } from 'rxjs';
 import { environment } from '../../../environments/environment';
-
-export interface SearchResult {
-    Search: {
-        Title: string;
-        Year: string;
-        imdbID: string;
-        Type: string;
-        Poster: string;
-    }[];
-    totalResults: string;
-    Response: 'True';
-}
-
-export interface SearchResultError {
-    Response: 'False';
-    Error: string;
-}
+import { SearchResultError } from './dtos/search-result-error.dto';
+import { SearchResult } from './dtos/search-result.dto';
 
 @Injectable({
     providedIn: 'root',

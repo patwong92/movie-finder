@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { map, Observable, take } from 'rxjs';
-import { MovieFinderService, SearchResult } from './movie-finder.service';
+import { SearchResult } from './dtos/search-result.dto';
+import { MovieFinderService } from './movie-finder.service';
 
 @Component({
     selector: 'app-movie-finder',
