@@ -4,7 +4,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 ## About this project
 
-This app uses OMDB to search for movies. Each search result displays its title, poster, year of release, and a non-functional button. The app has the ability to paginate if there are at least 10 search results.
+This app uses OMDb to search for movies. Each search result displays its title, poster, year of release, and a non-functional button. The app has the ability to paginate if there are at least 10 search results.
 
 ## Sample screenshot
 
