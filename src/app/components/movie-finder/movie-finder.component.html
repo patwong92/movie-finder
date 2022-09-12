@@ -1,0 +1,13 @@
+<div class="container__movie-finder mx-auto">
+    <h4 class="text-center">This app searches movie details.</h4>
+    <app-search
+        (submitEvent)="handleQuery($event)"
+        (clearEvent)="clearResult()"
+    ></app-search>
+    <app-result
+        *ngIf="
+            (searchResultExists$ | async) || (searchResultErrorExists$ | async)
+        "
+        (paginateEvent)="handlePaginatedQuery($event)"
+    ></app-result>
+</div>

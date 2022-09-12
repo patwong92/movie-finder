@@ -1,0 +1,58 @@
+<div class="d-flex justify-content-between align-items-center">
+    <h2 class="mb-0">
+        Search Results
+        <span *ngIf="(searchResult$ | async)?.totalResults as totalResults"
+            >({{ totalResults }})</span
+        >
+    </h2>
+    <div
+        *ngIf="(searchResult$ | async)?.totalResults as totalResults"
+        class="d-flex flex-start gap-3"
+    >
+        <span class="align-self-center">{{
+            +totalResults | paginator: (pageNumber$ | async) ?? 1:10
+        }}</span>
+        <button
+            mat-raised-button
+            [disabled]="!canPaginateLeft"
+            (click)="paginate('left')"
+        >
+            <mat-icon>chevron_left</mat-icon>
+        </button>
+        <button
+            mat-raised-button
+            [disabled]="!canPaginateRight"
+            (click)="paginate('right')"
+        >
+            <mat-icon>chevron_right</mat-icon>
+        </button>
+    </div>
+</div>
+<hr class="divider" />
+<h3 *ngIf="searchResultError$ | async as error; else showResults">
+    {{ error }}
+</h3>
+
+<ng-template #showResults>
+    <div class="mb-4" *ngIf="(searchResult$ | async)?.Search as searchResults">
+        <div
+            *ngFor="let result of searchResults"
+            class="d-flex flex-start mb-2"
+        >
+            <img
+                [src]="
+                    result.Poster === 'N/A'
+                        ? 'assets/placeholder.png'
+                        : result.Poster
+                "
+            />
+            <div class="container__details">
+                <h3>{{ result.Title }}</h3>
+                <p>{{ result.Year }}</p>
+                <button class="btn btn-primary" (click)="showImdbID()">
+                    Show ImdbID
+                </button>
+            </div>
+        </div>
+    </div>
+</ng-template>
