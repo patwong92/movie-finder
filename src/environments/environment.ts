@@ -4,6 +4,6 @@
 
 export const environment = {
     production: false,
-    searchUrl: 'http://www.omdbapi.com',
+    searchUrl: 'https://www.omdbapi.com',
     apiKey: 'd7b217e2',
 };
